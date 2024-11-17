@@ -6,13 +6,11 @@ import mimetypes
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# Limiter la taille des fichiers uploadés à 20 Mo
 app.config['MAX_CONTENT_LENGTH'] = 20 * 1024 * 1024  # 20 Mo
 
 UPLOAD_FOLDER = 'uploads'
 CONVERTED_FOLDER = 'converted'
 
-# Assurez-vous que les dossiers existent
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 if not os.path.exists(CONVERTED_FOLDER):
