@@ -2,7 +2,9 @@
 
 ## Description
 
-**KissVoice Converter** is a simple and efficient web tool designed to convert media files using a clean and user-friendly web interface. Built with Python's Flask framework and powered by `ffmpeg`, this application allows users to upload, process, and download files in different formats quickly and seamlessly.
+**KissVoice Converter** is a simple and efficient web tool designed to convert MP3 or WAV files to WAV in 8khz using a clean and user-friendly web interface. Built with Python's Flask framework and powered by `ffmpeg`, this application allows users to upload, process, and download files in different formats quickly and seamlessly.
+
+
 
 ### Features
 
@@ -57,6 +59,17 @@ Follow these steps to run the application locally:
 3. Select the desired output format.
 4. Click the "Convert" button.
 5. Download the converted file once processing is complete.
+
+## Supported Conversion
+
+This application supports converting:
+1. MP3 to WAV
+2. WAV to WAV (with specific audio parameters)
+
+To convert MP3 or WAV to a WAV file with specific parameters:
+```
+ffmpeg.input(mp3_path).output(wav_path, ar=8000, ac=1, sample_fmt='s16').run()
+```
 
 ## Technologies Used
 
