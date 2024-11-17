@@ -1,7 +1,5 @@
 # KissVoice Converter
 
-![Converter Logo](https://converter.kissvoice.kissgroup.io/assets/logo.png)
-
 ## Description
 
 **KissVoice Converter** is a simple and efficient web tool designed to convert media files using a clean and user-friendly web interface. Built with Python's Flask framework and powered by `ffmpeg`, this application allows users to upload, process, and download files in different formats quickly and seamlessly.
