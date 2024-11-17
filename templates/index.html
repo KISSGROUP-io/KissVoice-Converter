@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur en WAV format Wazo</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Logo KissVoice -->
+    <div class="logo-container">
+        <img src="/static/KissVoice.png" alt="Logo KissVoice" class="logo">
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="container">
+        <h1>Convertisseur en WAV format Wazo</h1>
+        <p>Upload un fichier MP3 ou WAV pour le convertir en WAV (8kHz, 16 bits).</p>
+
+        <!-- Afficher les messages d'erreur avec Flask flash -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for message in messages %}
+                <li style="color:red;">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <form id="uploadForm" method="POST" enctype="multipart/form-data">
+            <div class="file-input">
+                <label for="file">Choisir un fichier MP3 ou WAV (20 Mo maximum)</label>
+                <input type="file" name="file" id="file" required>
+            </div>
+            <div class="submit-btn">
+                <button type="submit" onclick="validateFile(event)">Convertir</button>
+            </div>
+        </form>
+
+        <!-- Message d'erreur qui s'affichera en cas de fichier non valide ou trop gros -->
+        <div id="errorMessage" class="error-message" style="display: none; color: red;">
+            Erreur : Seuls les fichiers MP3 ou WAV sont acceptés et doivent être inférieurs à 20 Mo.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Convertisseur proposé gratuitement par <a href="https://kissgroup.io" target="_blank">Kissgroup</a></p>
+    </footer>
+
+    <script>
+        // Limite de taille à 20 Mo (20 * 1024 * 1024 octets)
+        const MAX_SIZE = 20 * 1024 * 1024;
+
+        // Fonction pour valider le fichier avant l'envoi
+        function validateFile(event) {
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];  // Récupère le fichier sélectionné
+            const allowedExtensions = /(\.mp3|\.wav)$/i;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Vérifier si un fichier est sélectionné
+            if (!file) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = "Aucun fichier sélectionné.";
+                event.preventDefault(); // Bloque l'envoi du formulaire
+                return;
+            }
+
+            // Vérifier l'extension du fichier
+            if (!allowedExtensions.exec(file.name)) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = "Erreur : Seuls les fichiers MP3 ou WAV sont acceptés.";
+                event.preventDefault(); // Bloque l'envoi du formulaire
+                return;
+            }
+
+            // Vérifier la taille du fichier (maximum 20 Mo)
+            if (file.size > MAX_SIZE) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = "Erreur : Le fichier dépasse la taille maximale de 20 Mo.";
+                event.preventDefault(); // Bloque l'envoi du formulaire
+                return;
+            }
+
+            // Si le fichier est valide, on cache le message d'erreur
+            errorMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

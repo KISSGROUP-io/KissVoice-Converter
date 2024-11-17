@@ -1,0 +1,121 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px; /* Largeur maximale du conteneur */
+    width: 100%;
+    box-sizing: border-box; /* Pour inclure le padding dans la largeur */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.file-input {
+    margin-bottom: 20px;
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="file"] {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 10px; /* Ajoute du padding pour l'espacement */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    box-sizing: border-box; /* Gère les bordures et le padding dans la largeur */
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+.submit-btn button {
+    padding: 10px 20px;
+    background-color: #9E00FF; /* Couleur du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn button:hover {
+    background-color: #8200D4; /* Effet hover pour le bouton */
+}
+
+/* Styles du logo */
+.logo-container {
+    position: relative;
+    top: -80px; /* Ajuster selon la position souhaitée du logo */
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 80%; /* Taille du logo */
+    max-width: 640px; /* Limite maximale de largeur */
+    height: auto;
+}
+
+/* Message d'erreur */
+.error-message {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    display: none; /* Cacher par défaut, affiché en cas d'erreur */
+}
+
+/* Styles du footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #666;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+footer a {
+    color: #9E00FF; /* Couleur du lien */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #8200D4; /* Effet hover sur le lien */
+}
