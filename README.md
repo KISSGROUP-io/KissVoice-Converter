@@ -33,7 +33,7 @@ Follow these steps to run the application locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/converter-web-app.git
+   git clone [https://github.com/KISSGROUP-io/KissVoice-Converter.git](https://github.com/KISSGROUP-io/KissVoice-Converter.git)
    cd converter-web-app
    ```
 
