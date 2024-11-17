@@ -34,6 +34,7 @@ Follow these steps to run the application locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/KISSGROUP-io/KissVoice-Converter.git
+   cd KissVoice-Converter/
    ```
 
 2. Install dependencies:
